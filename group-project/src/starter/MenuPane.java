@@ -74,5 +74,8 @@ public class MenuPane extends GraphicsPane {
 		if (obj == exit) {
 			program.switchToExit(); //need to create exit screen for this condition
 		}
+		if (obj == scoreboard) {
+			program.switchToScore(); //need to finish scoreboard screen
+		}
 	}
 }

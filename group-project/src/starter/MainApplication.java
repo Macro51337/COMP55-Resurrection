@@ -21,6 +21,7 @@ public class MainApplication extends GraphicsApplication {
 	private WinPane winPane;
 	private MenuPane menu;
 	private LosePane losePane;
+	private Scoreboard scorePane;
 	private int count;
 
 	public void init() {
@@ -52,6 +53,10 @@ public class MainApplication extends GraphicsApplication {
 	public void switchToGame() { //switches to game screen
 		gamePane = new GamePane(this);
 		switchToScreen(gamePane);
+	}
+	
+	public void switchToScore() {
+		switchToScreen(scorePane);
 	}
 	
 	public void switchToExit() { //switches to exit screen

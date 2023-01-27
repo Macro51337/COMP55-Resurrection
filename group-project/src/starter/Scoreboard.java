@@ -1,4 +1,4 @@
-/*package starter;
+package starter;
 import acm.graphics.GLabel;
 import acm.graphics.GRect;
 import java.awt.*;
@@ -9,7 +9,7 @@ import javafx.util.*;
 import java.io.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Scoreboard extends Applet{
+public class Scoreboard extends GraphicsPane{
 	private MainApplication program;
 	private String playerName;
 	private Pair<String, Integer> scores;
@@ -19,7 +19,6 @@ public class Scoreboard extends Applet{
 	String saved;
 	TextField text;
 	GRect textRect;
-	GLabel 
 	File scoreFile = new File("scores.txt");
 	FileWriter out = null;
 	FileInputStream in = null;
@@ -39,7 +38,7 @@ public class Scoreboard extends Applet{
 		highScore.setFont("Lato-50");
 		app.add(boardScore, 600, 200);
 		
-		displayList();
+		//displayList();
 		
 	}
 	
@@ -148,6 +147,18 @@ public class Scoreboard extends Applet{
             }
         }
 	}
+
+	@Override
+	public void showContents() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void hideContents() {
+		// TODO Auto-generated method stub
+		
+	}
 }
-*/
+
 
