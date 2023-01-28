@@ -17,6 +17,7 @@ public class MenuPane extends GraphicsPane {
 	private GButton scoreboard;
 	private GImage alien;
 	private GLabel point;
+	private int currScore;
 	
 	public MenuPane(MainApplication app) {
 		super();
@@ -75,7 +76,7 @@ public class MenuPane extends GraphicsPane {
 			program.switchToExit(); //need to create exit screen for this condition
 		}
 		if (obj == scoreboard) {
-			program.switchToScore(); //need to finish scoreboard screen
+			program.switchToScore(currScore); //need to finish scoreboard screen
 		}
 	}
 }

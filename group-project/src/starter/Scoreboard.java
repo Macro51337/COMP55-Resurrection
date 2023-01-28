@@ -1,4 +1,5 @@
 package starter;
+import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GRect;
 import java.awt.*;
@@ -11,6 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Scoreboard extends GraphicsPane{
 	private MainApplication program;
+	private GParagraph para;
 	private String playerName;
 	private Pair<String, Integer> scores;
 	private ArrayList<Pair<String, Integer>> list;
@@ -18,14 +20,31 @@ public class Scoreboard extends GraphicsPane{
 	private GLabel name = new GLabel("Player Name: "), boardScore = new GLabel("Score:"), highScore = new GLabel("Highscores"), scoreboardName = new GLabel("Input your name: ");
 	String saved;
 	TextField text;
-	GRect textRect;
+	private GRect textRect;
 	File scoreFile = new File("scores.txt");
 	FileWriter out = null;
 	FileInputStream in = null;
 	
-	public Scoreboard(MainApplication app) {
+	public Scoreboard(MainApplication app, int currScore) {
+		super();
+		System.out.println(currScore);
 		this.program = app;
-		app.setBackground(Color.BLACK);
+		para = new GParagraph("SCOREBOARD", 250, 100);
+		para.setFont("ShowcardGothic-50");
+		para.setColor(Color.BLUE);
+		text = new TextField(20);
+		textRect = new GRect(0, 0);
+		textRect.setSize(100, 50);
+		textRect.setFillColor(Color.WHITE);
+		textRect.setFilled(true);
+		scoreboardName.setFont("Lato-30");
+		scoreboardName.setColor(Color.WHITE);
+		playerName = text.getText();
+        //scores = new Pair(playerName, score.finalScore());
+        //list.add(scores);
+        //sortList();
+        //saveList();
+		/*app.setBackground(Color.BLACK);
 		highScore.setColor(Color.WHITE);
 		highScore.setFont("Lato-70");
 		app.add(highScore, 400, 100);
@@ -38,25 +57,8 @@ public class Scoreboard extends GraphicsPane{
 		highScore.setFont("Lato-50");
 		app.add(boardScore, 600, 200);
 		
-		//displayList();
-		
-	}
-	
-	public void initiate() {
-		getList();
-		text = new TextField(20);
-		textRect.setSize(100, 50);
-		textRect.setFillColor(Color.BLACK);
-		textRect.setFilled(true);
-		program.add(textRect, 300, 400);
-		scoreboardName.setFont("Lato-30");
-		scoreboardName.setColor(Color.WHITE);
-		program.add(scoreboardName, 300, 425);
-        playerName = text.getText();
-        scores = new Pair(playerName, score.finalScore());
-        list.add(scores);
-        sortList();
-        saveList();
+		displayList();
+		*/
 	}
 	
 	public void displayList() {
@@ -151,13 +153,16 @@ public class Scoreboard extends GraphicsPane{
 	@Override
 	public void showContents() {
 		// TODO Auto-generated method stub
-		
+		program.add(name);
+		program.add(para);
+		program.add(textRect, 300, 400);
+		program.add(scoreboardName, 300, 425);
 	}
 
 	@Override
 	public void hideContents() {
 		// TODO Auto-generated method stub
-		
+		program.remove(name);
 	}
 }
 

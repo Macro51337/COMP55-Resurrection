@@ -55,7 +55,8 @@ public class MainApplication extends GraphicsApplication {
 		switchToScreen(gamePane);
 	}
 	
-	public void switchToScore() {
+	public void switchToScore(int score) {
+		scorePane = new Scoreboard(this, score);
 		switchToScreen(scorePane);
 	}
 	
