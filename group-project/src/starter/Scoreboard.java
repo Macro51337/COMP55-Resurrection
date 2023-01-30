@@ -32,14 +32,8 @@ public class Scoreboard extends GraphicsPane{
 		para = new GParagraph("SCOREBOARD", 250, 100);
 		para.setFont("ShowcardGothic-50");
 		para.setColor(Color.BLUE);
-		text = new TextField(20);
-		textRect = new GRect(0, 0);
-		textRect.setSize(100, 50);
-		textRect.setFillColor(Color.WHITE);
-		textRect.setFilled(true);
 		scoreboardName.setFont("Lato-30");
 		scoreboardName.setColor(Color.WHITE);
-		playerName = text.getText();
         //scores = new Pair(playerName, score.finalScore());
         //list.add(scores);
         //sortList();
@@ -155,7 +149,6 @@ public class Scoreboard extends GraphicsPane{
 		// TODO Auto-generated method stub
 		program.add(name);
 		program.add(para);
-		program.add(textRect, 300, 400);
 		program.add(scoreboardName, 300, 425);
 	}
 

@@ -8,6 +8,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+
+import javax.swing.JTextField;
 import javax.swing.Timer;
 import acm.graphics.GLabel;
 
@@ -29,6 +32,7 @@ public class GamePane extends GraphicsPane implements ActionListener, KeyListene
 	private int currScore = 0, currLives = 3;
 	private GLabel currentLives = new GLabel ("Lives: " + currLives);
 	private GLabel currentScore = new GLabel ("Score: " + currScore);
+	JTextField userText = new JTextField("Enter your username: ");
 	Random r = new Random();
 	private Timer someTimer;
  
@@ -84,7 +88,7 @@ public class GamePane extends GraphicsPane implements ActionListener, KeyListene
 		  } return false; 
 	}
 
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) {		
 		x += velx;
 		y += vely;
 		LaserCounter++;

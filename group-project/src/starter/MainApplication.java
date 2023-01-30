@@ -23,6 +23,7 @@ public class MainApplication extends GraphicsApplication {
 	private LosePane losePane;
 	private Scoreboard scorePane;
 	private int count;
+	private UserInput user;
 
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -30,6 +31,8 @@ public class MainApplication extends GraphicsApplication {
 
 	public void run() {
 		System.out.println("Hello, world!");
+		user = new UserInput();
+		user.main([]);
 		exitPane = new ExitPane(this);
 		menu = new MenuPane(this);
 		switchToMenu();
