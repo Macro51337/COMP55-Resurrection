@@ -32,7 +32,7 @@ public class GamePane extends GraphicsPane implements ActionListener, KeyListene
 	private int currScore = 0, currLives = 3;
 	private GLabel currentLives = new GLabel ("Lives: " + currLives);
 	private GLabel currentScore = new GLabel ("Score: " + currScore);
-	JTextField userText = new JTextField("Enter your username: ");
+	String userName;
 	Random r = new Random();
 	private Timer someTimer;
  
@@ -45,13 +45,28 @@ public class GamePane extends GraphicsPane implements ActionListener, KeyListene
 	public static final int HITBOX_WIDTH = 2;
 	
 	public GamePane(MainApplication app) {
+		Scanner myObj = new Scanner(System.in);
 		this.program = app;
+		if (userName == null) {
+			System.out.println("Enter username: ");
+			userName = myObj.nextLine();
+			System.out.println("Username is: " + userName);
+		}
 		drawAliens();
 		drawSpaceship(shoot);
 		someTimer = new Timer(program.TIMER_SPEED, this);
 		someTimer.start();
 		addKeyListener(this);
 		setFocusTraversalKeysEnabled(false);
+		myObj.close();
+	}
+	
+	public int getScore() {
+		return this.currScore;
+	}
+	
+	public String getUser() {
+		return this.userName;
 	}
 	
 	private void setFocusTraversalKeysEnabled(boolean b) {} // TODO Auto-generated method stub

@@ -16,7 +16,7 @@ public class Scoreboard extends GraphicsPane{
 	private String playerName;
 	private Pair<String, Integer> scores;
 	private ArrayList<Pair<String, Integer>> list;
-	private GamePane score;
+	GamePane game = new GamePane(program);
 	private GLabel name = new GLabel("Player Name: "), boardScore = new GLabel("Score:"), highScore = new GLabel("Highscores"), scoreboardName = new GLabel("Input your name: ");
 	String saved;
 	TextField text;
@@ -25,10 +25,13 @@ public class Scoreboard extends GraphicsPane{
 	FileWriter out = null;
 	FileInputStream in = null;
 	
-	public Scoreboard(MainApplication app, int currScore) {
+	public Scoreboard(MainApplication app) {
 		super();
-		System.out.println(currScore);
 		this.program = app;
+		int currLives = game.getScore();
+		String userName = game.getUser();
+		System.out.println(currLives);
+		System.out.println(userName);
 		para = new GParagraph("SCOREBOARD", 250, 100);
 		para.setFont("ShowcardGothic-50");
 		para.setColor(Color.BLUE);

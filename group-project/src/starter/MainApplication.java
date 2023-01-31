@@ -30,9 +30,7 @@ public class MainApplication extends GraphicsApplication {
 	}
 
 	public void run() {
-		System.out.println("Hello, world!");
-		user = new UserInput();
-		user.main([]);
+		System.out.println("Hello, world!");		
 		exitPane = new ExitPane(this);
 		menu = new MenuPane(this);
 		switchToMenu();
@@ -58,8 +56,8 @@ public class MainApplication extends GraphicsApplication {
 		switchToScreen(gamePane);
 	}
 	
-	public void switchToScore(int score) {
-		scorePane = new Scoreboard(this, score);
+	public void switchToScore() {
+		scorePane = new Scoreboard(this);
 		switchToScreen(scorePane);
 	}
 	
